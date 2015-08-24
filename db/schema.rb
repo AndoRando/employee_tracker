@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150824192806) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "list_id"
+    t.integer  "division_id"
   end
 
 end

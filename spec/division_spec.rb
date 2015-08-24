@@ -6,7 +6,7 @@ describe(Division) do
       test_division = Division.create({:name => "IT"})
       test_employee1 = Employee.create({:name => "Alexa Zeazas", :division_id => test_division.id()})
       test_employee2 = Employee.create({:name => "Andrew Brennwald", :division_id => test_division.id()})
-      expect(test_division.all()).to(eq([test_employee1, test_employee2]))
+      expect(test_division.employees()).to(eq([test_employee1, test_employee2]))
     end
   end
 end

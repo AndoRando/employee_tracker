@@ -1,0 +1,33 @@
+<% require('pry') %>
+
+<h1><%= @division.name() %> Details</h1>
+
+
+
+<% if @division.employees().any?() %>
+
+  <h3><%= @division.name() %> Employees:</h3>
+
+  <ul>
+    <% @division.employees().each() do |employee| %>
+      <li><a href="/employees/<%= employee.id() %>"><%= employee.name() %></a></li>
+    <% end %>
+  </ul>
+
+
+<% else %>
+
+  <h3>There are no employees in <%= @division.name() %>, so it's super effective.</h3>
+
+<% end %>
+
+<form action="/employees" method="post">
+  <input type="hidden" name="division_id" id="division_id" value="<%= @division.id() %>">
+  <div class="form-group">
+    <label for="name" class="form-label">Add an employee</label>
+    <input type="text" name="name" placeholder="New employee's name." id="name">
+    <button type="submit" class="btn">Add employee</button>
+  </div>
+</form>
+
+<a href="/">Back to Professor Oak's Lab</a>

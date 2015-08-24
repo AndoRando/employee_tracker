@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h1>Employdex <small>Gotta track 'em all!</small></h1>
+</div>
+
+<% if @divisions.any?() %>
+
+  <h3>Divisions:</h3>
+
+  <ul>
+    <% @divisions.each() do |division| %>
+      <li><a href="/divisions/<%= division.id() %>"><%= division.name() %></a></li>
+    <% end %>
+  </ul>
+
+<% else %>
+
+  <p>There are no divisions at this time.</p>
+
+<% end %>
+
+<form action="/divisions" method="post">
+  <div class="form-group">
+    <label for="name" class="form-label">Add a division:</label>
+    <input type="text" id="name" name="name" placeholder="New division's name.">
+    <button type="submit" class="btn">Add division</button>
+  </div>
+</form>
